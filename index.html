@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>سوگند و عرفان</title>
+
+<style>
+
+@import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;500;700&display=swap');
+
+*{
+box-sizing:border-box;
+}
+
+body{
+margin:0;
+font-family:Vazirmatn,sans-serif;
+background:#faf6ef;
+color:#4a4035;
+overflow-x:hidden;
+}
+
+
+/* صفحه اول */
+
+.cover{
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+background:
+linear-gradient(135deg,#fff,#f2e5d0);
+cursor:pointer;
+}
+
+
+.envelope{
+width:300px;
+height:210px;
+background:#dfc79d;
+border-radius:15px;
+position:relative;
+box-shadow:0 20px 50px #0002;
+animation:float 3s infinite;
+}
+
+
+@keyframes float{
+50%{
+transform:translateY(-15px);
+}
+}
+
+
+.envelope:before{
+content:"";
+position:absolute;
+top:0;
+left:0;
+border-left:150px solid transparent;
+border-right:150px solid transparent;
+border-top:110px solid #c9aa75;
+}
+
+
+.paper{
+position:absolute;
+background:white;
+width:270px;
+height:150px;
+left:15px;
+bottom:15px;
+border-radius:10px;
+text-align:center;
+padding-top:30px;
+}
+
+
+.paper h2{
+color:#b08a3c;
+}
+
+
+/* کارت اصلی */
+
+.main{
+display:none;
+animation:show 1.5s;
+}
+
+
+@keyframes show{
+from{
+opacity:0;
+transform:translateY(40px);
+}
+to{
+opacity:1;
+}
+}
+
+
+.hero{
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+flex-direction:column;
+text-align:center;
+padding:20px;
+}
+
+
+h1{
+font-size:55px;
+color:#b08a3c;
+margin:10px;
+}
+
+
+.heart{
+color:#c56b7a;
+font-size:35px;
+}
+
+
+.subtitle{
+font-size:20px;
+line-height:2;
+}
+
+
+.card{
+margin:30px auto;
+max-width:500px;
+background:white;
+border-radius:25px;
+padding:35px;
+box-shadow:0 15px 40px #0001;
+text-align:center;
+}
+
+
+.card h2{
+color:#b08a3c;
+}
+
+
+.date{
+font-size:25px;
+font-weight:bold;
+}
+
+
+.location{
+line-height:2;
+font-size:19px;
+}
+
+
+/* شمارش */
+
+.timer{
+display:flex;
+justify-content:center;
+gap:12px;
+flex-wrap:wrap;
+}
+
+
+.box{
+background:#f8eedc;
+padding:15px;
+border-radius:15px;
+min-width:70px;
+}
+
+
+.box span{
+font-size:28px;
+color:#ad8331;
+font-weight:bold;
+display:block;
+}
+
+
+
+/* دکمه */
+
+button{
+border:0;
+background:#b08a3c;
+color:white;
+padding:15px 35px;
+border-radius:50px;
+font-size:17px;
+margin-top:20px;
+}
+
+
+/* گلبرگ */
+
+.petal{
+position:fixed;
+top:-20px;
+width:12px;
+height:12px;
+background:#e8b8c3;
+border-radius:50%;
+animation:fall 8s linear infinite;
+}
+
+
+@keyframes fall{
+to{
+transform:translateY(110vh) rotate(360deg);
+}
+}
+
+
+footer{
+text-align:center;
+padding:40px;
+color:#888;
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<div class="cover" onclick="openCard()">
+
+<div class="envelope">
+
+<div class="paper">
+
+<h2>دعوتنامه عقد</h2>
+
+<p>برای مشاهده لمس کنید</p>
+
+</div>
+
+</div>
+
+</div>
+
+
+
+<div class="main">
+
+
+<div class="hero">
+
+<h1>
+سوگند
+<span class="heart">♥</span>
+عرفان
+</h1>
+
+<p class="subtitle">
+با عشق آغاز فصل جدید زندگی‌مان را جشن می‌گیریم
+</p>
+
+</div>
+
+
+
+<div class="card">
+
+<h2>زمان مراسم</h2>
+
+<p class="date">
+۲۵ مرداد ۱۴۰۵
+</p>
+
+<p class="location">
+مهرآباد<br>
+خیابان طالقانی<br>
+سالن مهر ماندگار
+</p>
+
+</div>
+
+
+
+<div class="card">
+
+<h2>تا شروع مراسم</h2>
+
+<div class="timer">
+
+<div class="box">
+<span id="d">0</span>
+روز
+</div>
+
+<div class="box">
+<span id="h">0</span>
+ساعت
+</div>
+
+<div class="box">
+<span id="m">0</span>
+دقیقه
+</div>
+
+<div class="box">
+<span id="s">0</span>
+ثانیه
+</div>
+
+</div>
+
+</div>
+
+
+
+<div class="card">
+
+<h2>با حضور شما زیباتر می‌شود</h2>
+
+<p>
+منتظر دیدار شما در آغاز این مسیر عاشقانه هستیم.
+</p>
+
+<button>
+مشاهده لوکیشن
+</button>
+
+</div>
+
+
+<footer>
+سوگند و عرفان ✨
+</footer>
+
+
+</div>
+
+
+
+
+<script>
+
+
+function openCard(){
+
+document.querySelector(".cover").style.display="none";
+
+document.querySelector(".main").style.display="block";
+
+
+for(let i=0;i<30;i++){
+
+let p=document.createElement("div");
+
+p.className="petal";
+
+p.style.left=Math.random()*100+"%";
+
+p.style.animationDelay=Math.random()*5+"s";
+
+document.body.appendChild(p);
+
+}
+
+}
+
+
+
+let target=new Date("2026-08-16 20:00").getTime();
+
+
+setInterval(()=>{
+
+let now=new Date().getTime();
+
+let diff=target-now;
+
+
+document.getElementById("d").innerHTML=
+Math.floor(diff/(1000*60*60*24));
+
+
+document.getElementById("h").innerHTML=
+Math.floor(diff/(1000*60*60)%24);
+
+
+document.getElementById("m").innerHTML=
+Math.floor(diff/(1000*60)%60);
+
+
+document.getElementById("s").innerHTML=
+Math.floor(diff/1000%60);
+
+
+},1000);
+
+
+</script>
+
+
+</body>
+</html>
